@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,15 +51,15 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Raghav Bali</a>
+      <a class="navbar-brand" href="{%  url 'home' %}">Raghav Bali</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="#">Resume</a>
-          <a class="nav-link" href="#">LinkedIn</a>
-          <a class="nav-link" href="#">Blog</a>
+          <a class="nav-link" href="{% static 'Raghav Tech Resume 2:21.pdf' %} ">Resume</a>
+          <a class="nav-link" href="https://www.linkedin.com/in/raghav-bali-978908123/">LinkedIn</a>
+          <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </div>
@@ -75,6 +76,7 @@
         <p>
           <a href="mailto:raghavbali.12@gmail.com" class="btn btn-dark my-2">Email me</a>
         </p>
+        <img src="{% static 'raghav.jpg' %}" class='img-fluid' height='200' width='300'/>
       </div>
     </div>
   </section>
@@ -85,18 +87,16 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
         {% for job in jobs.all %}
-          {% if job.summary == "Piano Covers" %}
-            <div class="col">
-              <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ job.image.url }}"></img>
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="{% url job.type %}"><img class="card-img-top" height='255' width='255' src="{{ job.image.url }}"></img></a>
+              <div class="card-body">
+                <p class="card-text">{{ job.summary }}</p>
+                <div class="d-flex justify-content-between align-items-center">
                 </div>
               </div>
             </div>
-          {% endif %}
+          </div>
         {% endfor %}
 
       </div>
