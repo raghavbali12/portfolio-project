@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.87.0">
-    <title>Raghav's Piano Covers</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
 
@@ -59,7 +59,7 @@
             <div class="navbar-nav ms-auto">
               <a class="nav-link" href="{% static 'Raghav Tech Resume 2:21.pdf' %} ">Resume</a>
               <a class="nav-link" href="https://www.linkedin.com/in/raghav-bali-978908123/">LinkedIn</a>
-              <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+              <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
             </div>
           </div>
         </div>
@@ -69,23 +69,18 @@
 <main>
   <div class="container">
 
-    <h1 class="text-center pt-3">Piano Covers</h1>
-    <br />
-    <br />
-    <h3>All covers</h3>
-    <hr />
 
-
-    {% for cover in covers.all %}
-      {% if cover.cover_type == 'pianocovers' %}
-        <a href="{% url 'coverdetail' cover.id %}"><h4>{{ cover.title }}</h4></a>
-        <br />
-        <img clas="img-fluid" src= '{{ cover.thumbnail.url }}' height="200" width="300" />
-        <br />
-        <p>{{ cover.summary }}</p>
-        <br />
-      {% endif %}
-    {% endfor %}
+    <h1 class='text-center pt-3'>{{ cover.title }}</h1>
+    <br />
+    <div class='mx-auto' style="width: 800px;">
+      <video class="center" width="800" controls>
+        <source src="{{ cover.performance.url }}" type="video/mp4">
+          Your browser does not support HTML5 video.
+      </video>
+    </div>
+    <br />
+    <p>{{ blog.body }}</p>
+    <br />
   </div>
 </main>
 

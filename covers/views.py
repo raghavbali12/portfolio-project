@@ -10,6 +10,6 @@ def guitarcovers(request):
     covers = Cover.objects
     return render(request, 'covers/guitarcovers.html', {'covers':covers})
 
-def detail(request, cover_id):
+def coverdetail(request, cover_id):
     detailcover = get_object_or_404(Cover, pk=cover_id)
-    return render(request, 'covers/detail.html', {'cover':detailcover})
+    return render(request, 'covers/coverdetail.html', {'cover':detailcover})
