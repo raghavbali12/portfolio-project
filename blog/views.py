@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Blog
 
 def allblogs(request):
-    blogs = Blog.objects
+    blogs = Blog.objects.all().order_by('pub_date').reverse()
     return render(request, 'blog/allblogs.html', {'blogs':blogs})
 
 def blogdetail(request, blog_id):
