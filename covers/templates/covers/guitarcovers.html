@@ -17,7 +17,8 @@
       {% if cover.cover_type == 'guitarcovers' %}
         <a href="{% url 'coverdetail' cover.id %}"><h4>{{ cover.title }}</h4></a>
         <br />
-        <img clas="img-fluid" src= '{{ cover.thumbnail.url }}' height="200" width="300" />
+        <img clas="img-fluid" src= '{{ cover.thumbnail.url }}' height="300" width="300" />
+        <br />
         <br />
         <p>{{ cover.summary }}</p>
         <br />
