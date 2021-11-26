@@ -6,7 +6,7 @@ class Job(models.Model):
     type_choices = [
         ('pianocovers', 'Piano cover'),
         ('guitarcovers', 'Guitar cover'),
-        ('projects', 'Coding project'),
+        ('allblogs', 'Blog'),
     ]
     type = models.CharField(
         max_length=50,
